@@ -54,7 +54,7 @@
             margin-right: 10px;
         }
 
-        .container form button {
+        a.btn.btn-primary.facebook {
             padding: 10px 20px;
             font-size: 1rem;
             background-color: #1A4D2E;
@@ -63,20 +63,11 @@
             cursor: pointer;
         }
 
-        .container form button:hover {
+        a.btn.btn-primary.facebook:hover {
             background-color: #217d45;
         }
 
-        /* Optional: Style for success and error messages */
-        .loading, .sent-message, .error-message {
-            display: none;
-        }
-        .sent-message {
-            color: green;
-        }
-        .error-message {
-            color: red;
-        }
+     
     </style>
 </head>
 <body>
@@ -87,52 +78,15 @@
         <h1>Good Outsource</h1>
         <h4>Virtual Assistant Outsourcing</h4>
 
-        <p>Get notified when we launch</p>
+        <p>Get notified when we launch by liking our Facebook page!</p>
 
-        <!-- Form for notifications -->
-        <form id="notifyForm">
-            <input type="email" name="email" id="email" placeholder="Enter your email" required>
-            <button type="submit">Notify Me</button>
-        </form>
+        <!-- Button to Facebook page -->
+        <a href="https://www.facebook.com/profile.php?id=61568183110692" target="_blank" class="btn btn-primary facebook">
+            Like our Facebook Page
+        </a>
 
-        <!-- Optional success and error messages -->
-        <div class="loading">Sending...</div>
-        <div class="sent-message">Thank you for subscribing! We will notify you when we launch.</div>
-        <div class="error-message">Something went wrong. Please try again later.</div>
+    
     </div>
-
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
-    <script>
-        // Initialize EmailJS
-        (function() {
-            emailjs.init("8cpRUQk5hSIZ7iXoX"); // Replace with your EmailJS public key
-        })();
-
-        // Handle form submission
-        document.getElementById('notifyForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from reloading the page
-
-            // Get the email value
-            const email = document.getElementById('email').value;
-
-            // Show loading message
-            document.querySelector('.loading').style.display = 'block';
-
-            // Send email using EmailJS
-            emailjs.send('service_nof76ae', 'template_mx9owgo', { email: email })
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    document.querySelector('.loading').style.display = 'none';
-                    document.querySelector('.sent-message').style.display = 'block';
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    document.querySelector('.loading').style.display = 'none';
-                    document.querySelector('.error-message').style.display = 'block';
-                });
-        });
-    </script>
 
 </body>
 </html>
